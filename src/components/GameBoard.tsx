@@ -166,12 +166,13 @@ export function GameBoard({ positions, playerCount, activePlayer, visited }: Pro
 
         {positions.slice(0, playerCount).map((pos, i) => {
           const c = center(Math.max(1, pos));
-          const offset = [
+          const offsets: Array<[number, number]> = [
             [-2, -2],
             [2, -2],
             [-2, 2],
             [2, 2],
-          ][i];
+          ];
+          const offset = offsets[i] ?? [0, 0];
           return (
             <div
               key={i}
